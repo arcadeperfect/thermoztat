@@ -1,13 +1,20 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import random
-import scipy
+from math import factorial
+import datetime
 
+
+#create a date time object from the junk you shat into that json
+
+def stringToDatetime(d,t):
+    dt = datetime.datetime.strptime('%s %s' %(d,t), '%Y-%m-%d %H:%M:%S.%f')
+    return dt
+
+
+#filter the data make it more smoother.
 
 def sago(y, window_size, order, deriv=0, rate=1):
 
-    import numpy as np
-    from math import factorial
+    y = np.asarray(y)
 
     try:
         window_size = np.abs(np.int(window_size))
@@ -29,34 +36,3 @@ def sago(y, window_size, order, deriv=0, rate=1):
     lastvals = y[-1] + np.abs(y[-half_window - 1:-1][::-1] - y[-1])
     y = np.concatenate((firstvals, y, lastvals))
     return np.convolve(m[::-1], y, mode='valid')
-
-
-'''
-x = np.arange(0, 5, 0.1);
-y = np.sin(x)
-plt.plot(x, y)
-
-plt.show()
-'''
-'''
-rng = 100
-
-print random.random()
-
-a = [random.random() for i in range(rng)]
-b = [i for i in range(rng)]
-
-plt.plot(b,a)
-plt.show()
-
-
-
-x = np.linspace(0,10,100)
-y = np.random.random(100)
-yhat = sago(y, 51, 3) # window size 51, polynomial order 3
-
-
-plt.plot(x,y)
-plt.plot(x,yhat, color='red')
-plt.show()
-'''

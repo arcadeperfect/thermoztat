@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matPlot
+
 import json
 
 path = 'textData/dadata.txt'

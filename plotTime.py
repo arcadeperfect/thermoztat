@@ -1,8 +1,8 @@
 import matplotlib.pyplot  as plt
 import matplotlib.dates as mdates
-from timeDateTest import *
-from matPlot import *
-import numpy as np
+from databiz import *
+
+
 path = './textData/dadata.txt'
 
 with open(path) as f:
@@ -33,7 +33,8 @@ for i in parsed:
 
 x = [i[0] for i in datez]
 y = [int(i[1]) for i in datez]
-y2 = sago(np.asarray(y),111,3)
+y2 = sago(y,111,3)
+
 print y2
 
 
