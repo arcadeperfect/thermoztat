@@ -9,7 +9,7 @@ with open(path) as f:
     data = f.readlines()
 
 parsed = []
-print 'arse'
+
 for i in data:
     z = eval(i)
     #print z[0],z[1],z[2]

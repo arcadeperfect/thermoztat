@@ -24,19 +24,19 @@ while (1):  # Main Loop
         pass
 
     writeData = str(datetime.datetime.now()).split(' ')
-    writeData.append(rec_data.split('.')[0])
+    writeData.append(float(rec_data))
     print writeData
-    '''
+
     with open('dadata.txt', 'a') as outputFile:
         outputFile.write(str(writeData)+'\n')
-    '''
 
+    '''
     jsonString = json.dumps(writeData, indent=4)
 
     print jsonString
     with open(dataPath, 'w') as outfile:
         outfile.write(jsonString)
-
+    '''
     time.sleep(3)
 
 
